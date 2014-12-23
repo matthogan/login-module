@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!-- Map the proxy xml response to a java object using xpath -->
+<xml-bindings xmlns="http://www.eclipse.org/eclipselink/xsds/persistence/oxm"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.5">
+	<java-types>
+		<java-type name="com.softhog.security.loginmodule.domain.CifResponse">
+			<xml-root-element name="Response" />
+			<java-attributes>
+				<xml-element java-attribute="errorNode" xml-path="SignonUser/errorNode" />
+			</java-attributes>
+		</java-type>
+		<java-type name="com.softhog.security.loginmodule.domain.ErrorNode">
+			<xml-root-element />
+			<java-attributes>
+				<xml-element java-attribute="code" xml-path="errorCode/text()" />
+				<xml-element java-attribute="msg" xml-path="errorMsg/text()" />
+				<xml-element java-attribute="sev" xml-path="errorSev/text()" />
+				<xml-element java-attribute="source" xml-path="errorSource/text()" />
+			</java-attributes>
+		</java-type>
+	</java-types>
+</xml-bindings>
